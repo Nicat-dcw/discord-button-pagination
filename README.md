@@ -35,6 +35,3 @@ Give a ⭐️ if this project helped you!
 Copyright © 2021 [bugo07](https://github.com/BUGO07).
 
 This project is [Apache 2.0](https://choosealicense.com/licenses/apache-2.0/) licensed.
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
