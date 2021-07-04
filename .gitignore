@@ -1,0 +1,10 @@
+# Dependencies
+node_modules
+
+# Package-Lock
+package-lock.json
+
+# Test
+.env
+.env.local
+test.js
