@@ -1,7 +1,7 @@
 {
   "name": "discord-button-pagination",
-  "version": "1.0.1",
-  "description": "Button Pagination",
+  "version": "1.0.3",
+  "description": "Button Pagination For DiscordJS",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon test.js"
