@@ -5,14 +5,21 @@ const {
   MessageActionRow,
   Message,
   Collection,
-  DiscordAPIError,
 } = require("discord.js");
 
 let initialized = false;
 
-class BP {
+/**
+ * Initialize ButtonPagination to then extend other MessageButton class
+ */
+class Client {
+  /**
+   * @param  {Client} [client] DiscordJS Client
+   */
   constructor(client) {
-    if (!version.startsWith("13")) {
+    var version = require("discord.js").version.split("");
+    version = parseInt(version[0] + version[1]);
+    if (!version =="13") {
       throw new Error("discord.js version must be <= 13");
     }
     require("./buttons/ExtendedButton")(client);
@@ -228,11 +235,27 @@ async function buttonPagination(message, pages, left, right, trash, time) {
   });
 }
 
+/**
+ * Sends a message with paginated embeds & buttons
+ */
 class ButtonPagination {
+  /**
+   * @param  {Message} [message] Message to get channel of
+   * @param  {Array} [pages] Array of embeds to paginate
+   * @param  {String} [left] Left button emoji
+   * @param  {String} [right] Right button emoji
+   * @param  {String} [cancel] Cancel button emoji
+   * @param  {Number} [time] Time until pagination expires
+   */
   constructor(message, pages, left, right, trash, time) {
     buttonPagination(message, pages, left, right, trash, time);
   }
 }
 
 module.exports.ButtonPagination = ButtonPagination;
-module.exports.client = BP;
+module.exports.Client = Client;
+module.exports.APIMessage = require("./buttons/APIMessage");
+module.exports.ButtonCollector = require("./buttons/ButtonCollector");
+module.exports.MessageComponent = require("./buttons/MessageComponent");
+module.exports.Util = require("./buttons/Util");
+module.exports.WebhookClient = require("./buttons/WebhookClient");

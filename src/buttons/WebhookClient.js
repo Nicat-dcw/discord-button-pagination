@@ -1,7 +1,17 @@
 const { WebhookClient, MessageEmbed } = require('discord.js');
 const APIMessage = require('./APIMessage').sendAPICallback;
 
+/**
+ * Adds extra features to WebhookClient class
+ * @extends {WebhookClient}
+ */
 class ExtendedWebhookClient extends WebhookClient {
+    /**
+     * @param  {Message} [message] Message to edit
+     * @param  {String} [content] Content of the message
+     * @param  {MessageOptions} [options] Options of the message
+     * @returns {Message}
+     */
     async editMessage(message, content, options) {
 
         if (content ? content.embed : null instanceof MessageEmbed) {
@@ -30,6 +40,11 @@ class ExtendedWebhookClient extends WebhookClient {
             .patch({ data, files });
     }
 
+    /**
+     * Deletes a message
+     * @param {Message} [message] Message to delete
+     * @returns {Message}
+     */
     async deleteMessage(message) {
         await this.client.api
             .webhooks(this.id, this.token)
@@ -37,6 +52,12 @@ class ExtendedWebhookClient extends WebhookClient {
             .delete();
     }
 
+    /**
+     * Fetches a message
+     * @param {Message|String|Snowflake} [message] Message to fetch 
+     * @param {Boolean} [boolean] Whether to cache the fetched data if it wasn't already 
+     * @returns {Message}
+     */
     async fetchMessage(message, cache = true) {
         const data = await this.client.api.webhooks(this.id, this.token).messages(message).get();
         return this.client.channels ? (this.client.channels.cache.get(data.channel_id) ? this.client.channels.cache.get(data.channel_id).messages.add(data, cache) : null) : data;

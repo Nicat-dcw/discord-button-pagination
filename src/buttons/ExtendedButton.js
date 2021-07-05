@@ -1,9 +1,6 @@
   
 const { Client } = require("discord.js");
 
-var version = require('discord.js').version.split('');
-version = parseInt(version[0] + version[1]);
-
 module.exports = (client) => {
 
     const { Events } = require('discord.js').Constants;
@@ -17,7 +14,7 @@ module.exports = (client) => {
         if (!data.message) return;
 
         if (data.data.component_type) {
-            const MessageComponent = require('./clickButton');
+            const MessageComponent = require('./MessageComponent');
             const button = new MessageComponent(client, data);
 
             client.emit('clickButton', button);

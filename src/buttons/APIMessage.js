@@ -4,6 +4,10 @@ const { MessageComponentType } = require('discord.js');
 const { BaseMessageComponent } = require('discord.js');
 const { MessageActionRow } = require('discord.js');
 
+/**
+ * Sends API callback
+ * @extends {dAPIMessage}
+ */
 class sendAPICallback extends dAPIMessage {
     resolveData() {
 
@@ -109,7 +113,10 @@ class sendAPICallback extends dAPIMessage {
         return this;
     }
 }
-
+/**
+ * Adds extra features to dAPIMessage
+ * @extends {dAPIMessage}
+ */
 class APIMessage extends dAPIMessage {
     resolveData() {
 

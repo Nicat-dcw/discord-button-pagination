@@ -1,17 +1,46 @@
-const { Collector, Message } = require("discord.js");
+const { Collector, Message, Channel, User, MessageButton } = require("discord.js");
 const Collection = require('discord.js').Collection;
 const { Events } = require('discord.js').Constants;
 
+/**
+ * Collects Buttons
+ * @extends {Collector}
+ */
 class ButtonCollector extends Collector {
+  /**
+   * @param  {Object} [object] The data for the collector
+   * @param  {CollectorFilter} [filter] The collector filter
+   * @param  {CollectorOptions} [options] The collector options
+   */
   constructor(data, filter, options = {}) {
     super(data.client, filter, options);
 
+    /**
+     * Message provided in data argument
+     * @type {Message}
+     * @returns {Message|null}
+     */
     this.message = data instanceof Message ? data : null;
 
+    /**
+     * Channel of the message
+     * @type {Channel}
+     * @returns {Channel|null}
+     */
     this.channel = this.message ? this.message.channel : data;
 
+    /**
+     * Collected users
+     * @type {Collection}
+     * @returns {Collection<User>}
+     */
     this.users = new Collection();
-
+    
+    /**
+     * Total users collected
+     * @type {Number}
+     * @returns {Number}
+     */
     this.total = 0;
 
     this.empty = this.empty.bind(this);
@@ -43,21 +72,34 @@ class ButtonCollector extends Collector {
       this.users.set(button.clicker.user.id, button.clicker.user);
     });
   }
-
+  /**
+   * Collect button clicks
+   * @param  {MessageButton} [button] The message button
+   * @type {Function}
+   * @returns {Snowflake}
+   */
   collect(button) {
     if (this.message) {
       return button.message.id === this.message.id ? button.discordID : null;
     }
     return button.channel.id === this.channel.id ? button.discordID : null;
   }
-
+  /**
+   * Dispose button
+   * @param  {MessageButton} [button] The message button
+   * @type {Function}
+   * @returns {Snowflake}
+   */
   dispose(button) {
     if (this.message) {
       return button.message.id === this.message.id ? button.discordID : null;
     }
     return button.channel.id === this.channel.id ? button.discordID : null;
   }
-
+  /**
+   * Empty the collector
+   * @type {Function}
+   */
   empty() {
     this.total = 0;
     this.collected.clear();
