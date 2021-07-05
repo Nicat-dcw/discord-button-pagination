@@ -43,9 +43,9 @@ client.on('messageCreate', message => {
 client.login('token');
 ```
 
-## Example
+## Websites
 
-``www.bugodev.cf
+* MaIn Website: [bugodev.cf](https://www.bugodev.cf)
 * Github: [@BUGO07](https://github.com/BUGO07)
 
 ## 🤝 Contributing
