@@ -12,11 +12,40 @@
 npm install discord-button-pagination
 ```
 
-## Author
+## Example
 
-👤 **bugo07**
+```js
+const { Client, Intents } = require('discord.js');
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+const { BP, ButtonPagination } = require("discord-button-pagination")
+const bP = new BP(client)
 
-* Website: https://www.bugodev.cf
+client.on('ready', () => {
+	console.log(`Logged in as ${client.user.tag}!`);
+});
+
+client.on('messageCreate', message => {
+	if (message.content === "pagination") {
+		new ButtonPagination(
+			message,
+			[
+				embed1,
+				embed2
+			],
+			"leftButtonEmoji",
+			"rightButtonEmoji",
+			"trashButtonEmoji",
+			60e3
+		)
+	}
+});
+
+client.login('token');
+```
+
+## Example
+
+``www.bugodev.cf
 * Github: [@BUGO07](https://github.com/BUGO07)
 
 ## 🤝 Contributing

@@ -2,7 +2,7 @@
   "name": "discord-button-pagination",
   "version": "1.0.4",
   "description": "Button Pagination For DiscordJS",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "dev": "nodemon test.js"
   },
@@ -18,8 +18,7 @@
     "row",
     "api"
   ],
-  "author": "",
-  "license": "Apache 2.0",
+  "author": "bugo07",
   "homepage": "https://github.com/BUGO07/discord-button-pagination#readme",
   "repository": {
     "type": "git",
