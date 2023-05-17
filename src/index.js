@@ -54,15 +54,15 @@ async function buttonPagination(message, pages, left, right, trash, time) {
   }
   const l = new MessageButton()
     .setStyle("PRIMARY")
-    .setCustomID("left")
+    .setCustomId("left")
     .setEmoji(left);
   const r = new MessageButton()
     .setStyle("PRIMARY")
-    .setCustomID("right")
+    .setCustomId("right")
     .setEmoji(right);
   const t = new MessageButton()
     .setStyle("DANGER")
-    .setCustomID("trash")
+    .setCustomId("trash")
     .setEmoji(trash);
   const ar = new MessageActionRow({
     components: [l.setDisabled(true), r, t],
