@@ -69,7 +69,7 @@ async function buttonPagination(message, pages, left, right, trash, time) {
   });
   var currentPage = 0;
   let msg = await message.channel.send({
-    embeds: [pages[0].setFooter(`Page ${currentPage + 1}/${pages.length}`)],
+    embeds: [pages[0].setFooter(`By Nicat-dcw`)],
     components: [ar],
   });
   let msgId = msg.id;
@@ -86,7 +86,7 @@ async function buttonPagination(message, pages, left, right, trash, time) {
         components: [],
         embeds: [
           pages[currentPage].setFooter(
-            `Page ${currentPage + 1}/${pages.length}`
+            `By Nicat-dcw`
           ),
         ],
       });
@@ -149,7 +149,7 @@ async function buttonPagination(message, pages, left, right, trash, time) {
         msg.edit({
           embeds: [
             pages[currentPage].setFooter(
-              `Page ${currentPage + 1}/${pages.length}`
+              `By Nicat-dcw`
             ),
           ],
           components: [
@@ -182,7 +182,7 @@ async function buttonPagination(message, pages, left, right, trash, time) {
         msg.edit({
           embeds: [
             pages[currentPage].setFooter(
-              `Page ${currentPage + 1}/${pages.length}`
+              `By Nicat-dcw`
             ),
           ],
           components: [
@@ -197,7 +197,7 @@ async function buttonPagination(message, pages, left, right, trash, time) {
         msg.edit({
           embeds: [
             pages[currentPage].setFooter(
-              `Page ${currentPage + 1}/${pages.length}`
+              `By Nicat-dcw`
             ),
           ],
           components: [
@@ -215,7 +215,7 @@ async function buttonPagination(message, pages, left, right, trash, time) {
           components: [],
           embeds: [
             pages[currentPage].setFooter(
-              `Page ${currentPage + 1}/${pages.length}`
+              `By Nicat-dcw`
             ),
           ],
           allowedMentions: { repliedUser: false },
