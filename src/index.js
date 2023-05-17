@@ -163,9 +163,7 @@ async function buttonPagination(message, pages, left, right, trash, time) {
         currentPage = pages.length - 1;
         msg.edit({
           embeds: [
-            pages[currentPage].setFooter(
-              `Page ${currentPage + 1}/${pages.length}`
-            ),
+            pages[currentPage].setFooter("By Nicat-dcw")
           ],
           components: [
             new MessageActionRow({
